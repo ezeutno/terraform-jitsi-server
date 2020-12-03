@@ -1,7 +1,7 @@
-resource "cloudflare_record" "dojitsi" {
+resource "cloudflare_record" "server" {
   zone_id = var.cloudflare_zone_id
   name    = var.url
-  value   = "127.0.0.1"
+  value   = digitalocean_droplet.server.ipv4_address
   type    = "A"
   proxied = false
 }

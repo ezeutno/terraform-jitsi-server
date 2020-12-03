@@ -30,6 +30,11 @@ variable "public_key_name" {
   description = "what is the public key name stored in digital ocean"
 }
 
+variable "github_repo_url" {
+  description = "git repository url"
+  default     = "github.com"
+}
+
 variable "github_username" {
   description = "docker compose git repository username"
   default     = "jitsi"
@@ -37,7 +42,7 @@ variable "github_username" {
 
 variable "github_repository" {
   description = "docker compose git repository"
-  default     = "docker_jitsi_meet"
+  default     = "docker-jitsi-meet"
 }
 
 variable "generate_config_path" {
