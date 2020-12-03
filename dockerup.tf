@@ -1,4 +1,4 @@
-resource "null_resource" "create_db_credentials" {
+resource "null_resource" "dockerup" {
 
   connection {
     type  = "ssh"
@@ -9,6 +9,7 @@ resource "null_resource" "create_db_credentials" {
 
    provisioner "remote-exec" {
     inline = [
+        "cd /root/${var.github_repository}/",
         "docker-compose up -d"
     ]
   }

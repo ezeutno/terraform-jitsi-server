@@ -23,6 +23,7 @@ resource "digitalocean_droplet" "server" {
     inline = [ 
         "apt-get update",
         "apt-get install -y docker.io",
+        "apt-get install -y docker-compose",
         "git clone https://${var.github_repo_url}/${var.github_username}/${var.github_repository}"
     ]
   }
@@ -34,9 +35,9 @@ resource "digitalocean_droplet" "server" {
 
   provisioner "remote-exec" {
     inline = [
-        "cd ${var.github_repository}",
+        "cd /root/${var.github_repository}/",
         "chmod +x ${var.generate_config_path}",
-        "./${var.generate_config_path}"
+        "./${var.generate_config_path}",
     ]
   }
 }

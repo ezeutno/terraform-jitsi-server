@@ -47,5 +47,5 @@ variable "github_repository" {
 
 variable "generate_config_path" {
   description = "generate config path for the remote server before docker_compose up"
-  default     = "gen_passwords.sh"
+  default     = "gen-passwords.sh"
 }
